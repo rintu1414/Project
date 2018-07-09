@@ -1,19 +1,19 @@
-<table>
-  <th>
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead class="text-center text-white bg-dark">
     <tr>
       <td>
-        a
+        header1
       </td>
       <td>
-        b
+        header2
       </td>
       <td>
-        c
+        header3
       </td>
     </tr>
-
-  </th>
-
+  </thead>
+<tbody>
   <tr *ngFor="let abc of data.classifications">
     <td>
       {{ abc.name1 }}
@@ -25,4 +25,7 @@
       {{ abc.name3 }}
     </td>
   </tr>
+</tbody>
+</table>
+</div>
 
