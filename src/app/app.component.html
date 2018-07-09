@@ -1,31 +1,29 @@
-<div class="table-responsive">
-<table class="table table-bordered">
-  <thead class="text-center text-white bg-dark">
-    <tr>
-      <td>
-        header1
-      </td>
-      <td>
-        header2
-      </td>
-      <td>
-        header3
-      </td>
-    </tr>
-  </thead>
-<tbody>
-  <tr *ngFor="let abc of data.classifications">
-    <td>
-      {{ abc.name1 }}
-    </td>
-    <td>
-      {{ abc.name2 }}
-    </td>
-    <td>
-      {{ abc.name3 }}
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+<input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
+<button type="button" class="btn btn-info" (click)="Upload()" >Upload</button>
+<hr>
 
+<div class="container">
+  <h2>Risk Register</h2>
+
+  <div class="table-responsive">
+    <table class="table" *ngIf="data">
+      <thead>
+      <tr>
+        <th>Response Plan</th>
+        <th>Actual Action</th>
+        <th>Due Date</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- BIND ARRAY TO TABLE -->
+      <tr *ngFor="let bird of data">
+        <td>{{bird.ID}}</td>
+        <td>{{bird.Name}}</td>
+        <td>{{bird.Type}}</td>
+        <td>{{bird.Status}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
