@@ -10,9 +10,8 @@ import {ExcelUploadService} from './excel-upload.service';
 })
 export class AppComponent {
   title = 'app';
-  arrayBuffer: any;
   file: File;
-  data =
+  dataArr =
     [
       {
         'ID': '001',
@@ -43,7 +42,10 @@ export class AppComponent {
 
   }
   uploadExcel() {
-    this.excelUploadService.Upload();
+    this.excelUploadService.Upload(this.file).subscribe(data => {
+      console.log(data);
+      //this.dataArr = data;
+    });
   }
 
 }

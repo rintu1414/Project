@@ -6,7 +6,7 @@
   <h2>Risk Register</h2>
 
   <div class="table-responsive">
-    <table class="table" *ngIf="data">
+    <table class="table" *ngIf="dataArr">
       <thead>
       <tr>
         <th>Response Plan</th>
@@ -17,7 +17,7 @@
       </thead>
       <tbody>
       <!-- BIND ARRAY TO TABLE -->
-      <tr *ngFor="let bird of data">
+      <tr *ngFor="let bird of dataArr">
         <td>{{bird.ID}}</td>
         <td>{{bird.Name}}</td>
         <td>{{bird.Type}}</td>
