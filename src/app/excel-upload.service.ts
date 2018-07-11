@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as XLSX from 'xlsx';
-import {Subject} from 'rxjs/Subject';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,32 +9,57 @@ import {Subject} from 'rxjs/Subject';
 export class ExcelUploadService {
   arrayBuffer: any;
   uploadData;
+  fileReader: FileReader = new FileReader();
+  fileData;
 
-  constructor() { }
+  dataArr: any =
+    [
+      {
+        'ID': '001',
+        'Name': 'Eurasian Collared-Dove',
+        'Type': 'Dove',
+        'Status': 'Streptopelia'
+      },
+      {
+        'ID': '002',
+        'Name': 'Bald Eagle',
+        'Type': 'Hawk',
+        'Status': 'Haliaeetus leucocephalus'
+      },
+      {
+        'ID': '003',
+        'Name': 'Cooper\'s Hawk',
+        'Type': 'Hawk',
+        'Status': 'Accipiter cooperii'
+      }
+    ];
 
-  /*Upload(file: File): Observable<String> {
-    const fileReader = new FileReader();
-    fileReader.onload = (e) => {
-      this.arrayBuffer = fileReader.result;
-      let data = new Uint8Array(this.arrayBuffer);
-      let arr = new Array();
-      for (let i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
-      let bstr = arr.join('');
-      let workbook = XLSX.read(bstr, {type: 'binary'});
-      let first_sheet_name = workbook.SheetNames[0];
-      let worksheet = workbook.Sheets[first_sheet_name];
-      console.log(XLSX.utils.sheet_to_json(worksheet, {raw: true}));
-
+  constructor() {
+    this.fileReader.onload = (e) => {
+      this.arrayBuffer = this.fileReader.result;
+      console.log('E', e);
+      const data: Uint8Array = new Uint8Array(this.arrayBuffer);
+      const arr = new Array();
+      for (let i = 0; i !== data.length; ++i) {
+        arr[i] = String.fromCharCode(data[i]);
+      }
+      const bstr = arr.join('');
+      const workbook = XLSX.read(bstr, {type: 'binary'});
+      const first_sheet_name = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[first_sheet_name];
+      this.fileData = XLSX.utils.sheet_to_json(worksheet, {raw: true});
+      console.log(this.fileData);
+      this.uploadFile.next(this.fileData);
     };
 
-    fileReader.readAsArrayBuffer(file);
-    console.log(this.uploadData);
-    return of(this.uploadData);
-  }*/
+  }
 
-  uploadFile = new Subject<File>();
+
+  private uploadFile = new BehaviorSubject<any>(this.dataArr);
+  public uploadFile$ = this.uploadFile.asObservable();
 
   uploadExcel(file: File) {
-     this.uploadFile.next(file);
+    this.fileReader.readAsArrayBuffer(file);
   }
 }
+
