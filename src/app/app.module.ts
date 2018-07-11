@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {ExcelUploadService} from './excel-upload.service';
 import { UploadComponent } from './upload/upload.component';
-import { AngularDraggableModule } from 'angular2-draggable';
 import { DataviewComponent } from './dataview/dataview.component';
+import {DataTableModule} from 'angular-6-datatable';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { DataviewComponent } from './dataview/dataview.component';
   ],
   imports: [
     BrowserModule,
-    AngularDraggableModule
+    DataTableModule
   ],
   providers: [ExcelUploadService],
   bootstrap: [AppComponent]

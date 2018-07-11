@@ -2,18 +2,26 @@
   <h2>Risk Register</h2>
 
   <div class="table-responsive">
-    <table class="table" *ngIf="dataArr">
+    <table class="table" *ngIf="dataArr" [mfData]="dataArr" #mf="mfDataTable" [mfRowsOnPage]="5">
       <thead>
       <tr>
-        <th *ngFor="let header of headerArr">{{header}}</th>
+        <th *ngFor="let header of headerArr">
+          <mfDefaultSorter by={{header}}>{{header}}</mfDefaultSorter></th>
       </tr>
       </thead>
       <tbody>
       <!-- BIND ARRAY TO TABLE -->
-      <tr *ngFor="let bird of dataArr">
+      <tr *ngFor="let bird of mf.data">
         <td *ngFor="let header of headerArr">{{bird[header]}}</td>
       </tr>
       </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="1000" >
+          <mfBootstrapPaginator [rowsOnPageSet]="[dataArr]"></mfBootstrapPaginator>
+        </td>
+      </tr>
+      </tfoot>
     </table>
   </div>
 </div>
