@@ -1,3 +1,4 @@
+
 <app-upload></app-upload>
 <hr>
 
@@ -8,19 +9,13 @@
     <table class="table" *ngIf="dataArr">
       <thead>
       <tr>
-        <th>Response Plan</th>
-        <th>Actual Action</th>
-        <th>Due Date</th>
-        <th>Status</th>
+        <th *ngFor="let header of headerArr">{{header}}</th>
       </tr>
       </thead>
       <tbody>
       <!-- BIND ARRAY TO TABLE -->
       <tr *ngFor="let bird of dataArr">
-        <td>{{bird.ID}}</td>
-        <td>{{bird.Name}}</td>
-        <td>{{bird.Type}}</td>
-        <td>{{bird.Status}}</td>
+        <td *ngFor="let header of headerArr">{{bird[header]}}</td>
       </tr>
       </tbody>
     </table>
