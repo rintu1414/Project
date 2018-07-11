@@ -1,23 +1,4 @@
 
 <app-upload></app-upload>
 <hr>
-
-<div class="container">
-  <h2>Risk Register</h2>
-
-  <div class="table-responsive">
-    <table class="table" *ngIf="dataArr">
-      <thead>
-      <tr>
-        <th *ngFor="let header of headerArr">{{header}}</th>
-      </tr>
-      </thead>
-      <tbody>
-      <!-- BIND ARRAY TO TABLE -->
-      <tr *ngFor="let bird of dataArr">
-        <td *ngFor="let header of headerArr">{{bird[header]}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<app-dataview></app-dataview>

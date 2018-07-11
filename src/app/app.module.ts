@@ -4,11 +4,13 @@ import { AppComponent } from './app.component';
 import {ExcelUploadService} from './excel-upload.service';
 import { UploadComponent } from './upload/upload.component';
 import { AngularDraggableModule } from 'angular2-draggable';
+import { DataviewComponent } from './dataview/dataview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
+    DataviewComponent,
   ],
   imports: [
     BrowserModule,
