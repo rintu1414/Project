@@ -1,9 +1,8 @@
 <div class="container">
-  <h2>Risk Register</h2>
-
-  <div class="table-responsive">
+  <div class="table-responsive-sm table-hover table-sm">
     <table class="table" *ngIf="dataArr" [mfData]="dataArr" #mf="mfDataTable" [mfRowsOnPage]="5">
-      <thead>
+      <caption>Risk Register</caption>
+      <thead class="thead-light">
       <tr>
         <th *ngFor="let header of headerArr">
           <mfDefaultSorter by={{header}}>{{header}}</mfDefaultSorter></th>
