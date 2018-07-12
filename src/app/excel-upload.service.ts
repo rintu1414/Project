@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as XLSX from 'xlsx';
-import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs';
-
+import { NgProgress } from 'ngx-progressbar';
 @Injectable({
   providedIn: 'root'
 })
 export class ExcelUploadService {
   arrayBuffer: any;
-  uploadData;
   fileReader: FileReader = new FileReader();
   fileData;
+
 
   dataArr: any =
     [
@@ -34,10 +33,11 @@ export class ExcelUploadService {
       }
     ];
 
-  constructor() {
+  constructor(public ngProgress: NgProgress) {
     this.fileReader.onload = (e) => {
       this.arrayBuffer = this.fileReader.result;
-      console.log('E', e);
+      this.ngProgress.start();
+
       const data: Uint8Array = new Uint8Array(this.arrayBuffer);
       const arr = new Array();
       for (let i = 0; i !== data.length; ++i) {
@@ -51,12 +51,10 @@ export class ExcelUploadService {
       console.log(this.fileData);
       this.uploadFile.next(this.fileData.filter(
         task => !!task[Object.keys(task)[0]]));
-
+      this.ngProgress.done();
     };
 
   }
-
-
   private uploadFile = new BehaviorSubject<any>(this.dataArr);
   public uploadFile$ = this.uploadFile.asObservable();
 
