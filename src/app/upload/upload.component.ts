@@ -16,6 +16,7 @@ export class UploadComponent implements OnInit {
   incomingfile(event) {
     console.log(event);
     this.file = event.target.files[0];
+    this.uploadService.uploadExcel(this.file);
 
   }
   uploadExcel() {

@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
 import { UploadComponent } from './upload/upload.component';
 
 
@@ -11,12 +10,7 @@ import { UploadComponent } from './upload/upload.component';
 export class AppComponent {
 
 
-constructor(public dialog: MatDialog) {}
+constructor() {}
 
-openUploadDialogue = () => {
-let uploadRef = this.dialog.open(UploadComponent, {
-                                                  height: '400px',
-                                                  width: '600px',
-                                                });
-}
+
 }
