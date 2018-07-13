@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {UploadComponent} from '../upload/upload.component';
 import { trigger, keyframes, animate, transition } from '@angular/animations';
 import * as kf from '../keyframes';
+import {ModalComponent} from '../modal/modal.component';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -29,11 +29,11 @@ export class CardComponent implements OnInit {
   }
 
   openUploadDialogue = () => {
-    const uploadRef = this.dialog.open(UploadComponent, {
-      height: '400px',
+    const uploadRef = this.dialog.open(ModalComponent, {
+      height: '200px',
       width: '600px',
     });
-  }
+      }
   startAnimation(state) {
     console.log(state);
     if (!this.animationState) {

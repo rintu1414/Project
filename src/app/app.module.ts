@@ -15,6 +15,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import {HammertimeDirective} from './card/hammertime.directive';
+import {FormsModule} from '@angular/forms';
 
 
 export class MyHammerConfig extends HammerGestureConfig  {
@@ -42,10 +43,12 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
+    FormsModule,
+    MatDialogModule
   ],
   providers: [ExcelUploadService, MatDialog,
       { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }],
-  entryComponents: [UploadComponent],
+  entryComponents: [UploadComponent, ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
