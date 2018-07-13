@@ -1,7 +1,7 @@
 import { Directive, HostListener, Output, EventEmitter } from '@angular/core';
 
 @Directive({
-  selector: '[app-hammerTime]'
+  selector: '[appHammerTime]'
 })
 export class HammertimeDirective {
 
@@ -14,11 +14,11 @@ export class HammertimeDirective {
 
   @HostListener('tap', ['$event'])
   onTap(e) {
-    if (e.tapCount === 2) {
+    if (e.tapCount === 1) {
       this.doubleTap.emit(e);
     }
 
-    if (e.tapCount === 3) {
+    if (e.tapCount === 2) {
       this.tripleTap.emit(e);
     }
   }
