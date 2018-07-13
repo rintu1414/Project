@@ -1,0 +1,8 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://resilience101dotcom.files.wordpress.com/2014/07/risk-register.jpg?w=1280');
+  background-size: cover;
+}

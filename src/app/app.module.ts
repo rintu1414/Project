@@ -6,23 +6,45 @@ import { UploadComponent } from './upload/upload.component';
 import { DataviewComponent } from './dataview/dataview.component';
 import {DataTableModule} from 'angular-6-datatable';
 import { NgProgressModule } from 'ngx-progressbar';
-import { MatDialog, MatDialogModule } from '@angular/material';
+import { MatDialog, MatDialogModule, MatCardModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ModalComponent } from './modal/modal.component';
+import { CardComponent } from './card/card.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import {HammertimeDirective} from './card/hammertime.directive';
+
+
+export class MyHammerConfig extends HammerGestureConfig  {
+  overrides = <any>{
+    // override hammerjs default configuration
+    'swipe': { direction: Hammer.DIRECTION_ALL  }
+  };
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
     DataviewComponent,
+    ModalComponent,
+    CardComponent,
+    HammertimeDirective
   ],
   imports: [
     BrowserModule,
     DataTableModule,
     MatDialogModule,
     NgProgressModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
   ],
-  providers: [ExcelUploadService, MatDialog],
+  providers: [ExcelUploadService, MatDialog,
+      { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }],
   entryComponents: [UploadComponent],
   bootstrap: [AppComponent]
 })

@@ -14,7 +14,7 @@ export class AppComponent {
 constructor(public dialog: MatDialog) {}
 
 openUploadDialogue = () => {
-let uploadRef = this.dialog.open(UploadComponent, {
+const uploadRef = this.dialog.open(UploadComponent, {
                                                   height: '400px',
                                                   width: '600px',
                                                 });
