@@ -8,11 +8,11 @@ import {UploadComponent} from '../upload/upload.component';
 })
 export class ModalComponent implements OnInit {
   constructor(
-    private dialogRef: MatDialogRef<UploadComponent>
+   private dialogRef: MatDialogRef<UploadComponent>
   ) {}
   ngOnInit() {
   }
-  close() {
+  /*close() {
     this.dialogRef.close();
-  }
+  }*/
 }

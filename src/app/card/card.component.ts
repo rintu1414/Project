@@ -30,8 +30,8 @@ export class CardComponent implements OnInit {
 
   openUploadDialogue = () => {
     const uploadRef = this.dialog.open(ModalComponent, {
-      height: '200px',
-      width: '600px',
+      height: 'auto',
+      width: 'auto',
     });
       }
   startAnimation(state) {

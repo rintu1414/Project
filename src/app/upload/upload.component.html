@@ -1,6 +1,18 @@
-<input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
-<button type="button" class="btn btn-info" (click)="uploadExcel()" >Upload</button>
+<input type="file" style="display: inline-block;width: 63%;" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
+<!--<button type="button" class="btn btn-info" (click)="uploadExcel()" >Upload</button>-->
+<button mat-button (click)="uploadExcel()">Upload</button>
 <!--<ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
              [speed]="50" [showSpinner]="true" [direction]="'rightToLeftIncreased'"
              [color]="'red'" [trickleSpeed]="50" [thick]="false" [ease]="'linear'"
 ></ng-progress>-->
+<form class="md-form">
+  <div class="file-field">
+    <a class="btn-floating purple-gradient mt-0 float-left">
+      <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+      <input type="file">
+    </a>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" placeholder="Upload your file">
+    </div>
+  </div>
+</form>
