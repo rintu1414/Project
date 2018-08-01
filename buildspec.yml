@@ -2,15 +2,17 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install
+       - echo Installing source NPM dependencies...
+       - npm install
+       - npm install -g @angular/cli
   pre_build:
     commands:
       - npm test
       - rm -rf node_modules
   build:
     commands:
-      - npm install --prod 
-      - npm run build
+       - echo Build started on `date`
+       - ng build --prod --aot
 
 artifacts:
   files:
