@@ -7,7 +7,7 @@ phases:
   pre_build:
     commands:
       - rm -rf node_modules/
-      - npm install
+      - sudo -u ec2-user -H npm install --production
   build:
     commands:
        - echo Build started on `date`
