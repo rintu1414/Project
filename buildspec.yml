@@ -5,7 +5,7 @@ phases:
        - echo Installing source NPM dependencies...
        - npm install
        - npm install -g @angular/cli
-       - npm install  bootstrap@3
+       - npm install bootstrap@3
        - npm install mdbootstrap
   pre_build:
     commands:
