@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ExcelUploadService} from '../excel-upload.service';
+import {CallDataServiceService} from '../service/call-data-service.service';
 
 @Component({
   selector: 'app-upload',
@@ -8,7 +9,7 @@ import {ExcelUploadService} from '../excel-upload.service';
 })
 export class UploadComponent implements OnInit {
   file: File;
-  constructor(public uploadService: ExcelUploadService) { }
+  constructor(public uploadService: ExcelUploadService,public  callDataService: CallDataServiceService) { }
 
   ngOnInit() {
   }
@@ -19,5 +20,8 @@ export class UploadComponent implements OnInit {
   }
   uploadExcel() {
     this.uploadService.uploadExcel(this.file);
+  }
+  hitService() {
+    this.callDataService.callEndPoint();
   }
 }
