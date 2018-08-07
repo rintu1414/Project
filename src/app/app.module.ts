@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {ExcelUploadService} from './excel-upload.service';
 import { UploadComponent } from './upload/upload.component';
@@ -16,6 +18,7 @@ import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import {HammertimeDirective} from './card/hammertime.directive';
 import {FormsModule} from '@angular/forms';
+import {CallDataServiceService} from './service/call-data-service.service';
 
 
 export class MyHammerConfig extends HammerGestureConfig  {
@@ -43,10 +46,12 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
+    HttpClientModule,
+    HttpModule,
     FormsModule,
     MatDialogModule
   ],
-  providers: [ExcelUploadService, MatDialog,
+  providers: [ExcelUploadService, CallDataServiceService, MatDialog,
       { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }],
   entryComponents: [UploadComponent, ModalComponent],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ import {CallDataServiceService} from '../service/call-data-service.service';
 })
 export class UploadComponent implements OnInit {
   file: File;
-  constructor(public uploadService: ExcelUploadService,public  callDataService: CallDataServiceService) { }
+  constructor(public uploadService: ExcelUploadService, public  callDataService: CallDataServiceService) { }
 
   ngOnInit() {
   }

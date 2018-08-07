@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CallDataServiceService {
-
+  private uploadFile = new BehaviorSubject<any>([]);
+  private sraUrl: string;
+  todos: Observable<any[]>;
+  private dataStore: {
+    todos: any[]
+  };
 
   constructor(private http: HttpClient) {
+    this.todos = this.uploadFile.asObservable();
 }
 
-public callEndPoint() {
+callEndPoint() {
 
-const options = new HttpHeaders()this.printers: String[]
-                .set('applicationName', 'pmapp');
 
-return this.http.get<String>('Srapmapp-env.gxae5mhw6a.us-east-2.elasticbeanstalk.com/pm', {headers: options}).subscribe() => {
-      console.log(this.printers);
-  }
+return this.http.get
+('http://Srapmapp-env.gxae5mhw6a.us-east-2.elasticbeanstalk.com/risk').
+subscribe((data) => {
+console.log(data);
+  });
 
 }
 }

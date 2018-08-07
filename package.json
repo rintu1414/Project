@@ -33,6 +33,7 @@
     "mdbootstrap": "^4.5.6",
     "ngx-bootstrap": "^3.0.1",
     "ngx-progressbar": "^2.1.1",
+    "npm": "^6.3.0",
     "path": "^0.12.7",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1",
