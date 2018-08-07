@@ -55,7 +55,7 @@ export class ExcelUploadService {
     };
 
   }
-  private uploadFile = new BehaviorSubject<any>(this.dataArr);
+  public uploadFile = new BehaviorSubject<any>(this.dataArr);
   public uploadFile$ = this.uploadFile.asObservable();
 
   uploadExcel(file: File) {

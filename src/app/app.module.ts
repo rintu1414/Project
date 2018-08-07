@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {HttpClientModule, HttpClient, HttpClientJsonpModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {ExcelUploadService} from './excel-upload.service';
 import { UploadComponent } from './upload/upload.component';
@@ -48,6 +48,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MatDividerModule,
     HttpClientModule,
     HttpModule,
+    HttpClientJsonpModule,
     FormsModule,
     MatDialogModule
   ],
