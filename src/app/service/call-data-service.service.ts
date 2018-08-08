@@ -24,10 +24,11 @@ callEndPoint() {
 
 
 return this.http.get
-('http://Srapmapp-env.gxae5mhw6a.us-east-2.elasticbeanstalk.com/risk').
+('/risk').
 subscribe((data) => {
 console.log(data);
   this.excelUpload.uploadFile.next(data);
+
   });
 
 }

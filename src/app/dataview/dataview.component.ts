@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ExcelUploadService} from '../excel-upload.service';
+import {CallDataServiceService} from "../service/call-data-service.service";
 
 @Component({
   selector: 'app-dataview',
@@ -9,9 +10,14 @@ import {ExcelUploadService} from '../excel-upload.service';
 export class DataviewComponent implements OnInit {
  dataArr;
   headerArr;
+callDataService:CallDataServiceService;
 
-  constructor(public uploadService: ExcelUploadService) {
+  constructor(public uploadService: ExcelUploadService, public calDataService:CallDataServiceService) {
+    this.callDataService = calDataService;
+  }
 
+  hitService() {
+    this.callDataService.callEndPoint();
   }
 
   ngOnInit() {

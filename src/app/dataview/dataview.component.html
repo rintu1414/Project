@@ -1,4 +1,5 @@
 <div class="container">
+  <button mat-button (click)="hitService()">Hit Backend</button>
   <div class="table-responsive-sm table-hover table-sm">
     <table class="table" *ngIf="dataArr" [mfData]="dataArr" #mf="mfDataTable" [mfRowsOnPage]="5">
       <caption>Risk Register</caption>
@@ -24,3 +25,4 @@
     </table>
   </div>
 </div>
+
